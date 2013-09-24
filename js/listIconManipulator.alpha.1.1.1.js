@@ -41,7 +41,7 @@ var listIconManipulator = {
 				jQuery.each($(iElm), function() { 
 					//console.log($(this).html());
 					jQuery(iElm).addClass('listIconManipulator');
-					jQuery('li').prepend(iElmIcon);
+					jQuery(this).children('li').prepend(iElmIcon);
 				});
 		}
 

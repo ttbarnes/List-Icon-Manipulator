@@ -1,8 +1,8 @@
 var config = {
 	
-	listIconType:"text", //simple text, or HTML selector (eg #myElement)
 	listIconSelector:"all",
-	listElmentIconText:"!*" //the icon text (can leave empty); this should always be a CSS background image, so no HTML tag rendering required here
+  listElmentIconContent:'<img src="http://www.openideas.info/wiki/images/d/d7/Template_warning.png" alt="Warning" />' //the icon content. can be simple text (eg '!*'), or HTML content
+	
 }
 
 
@@ -10,7 +10,7 @@ var listIconManipulator = {
 	init: function(){	
 		
 		//private config
-		iElmIcon = '<span class="icon">' + config.listElmentIconText + '</span>';
+		iElmIcon = '<span class="icon">' + config.listElmentIconContent + '</span>';
 		
 		//config/options
 		if (config.listIconSelector == 'all'){
@@ -36,7 +36,7 @@ var listIconManipulator = {
 		//run it
 		if (init1 == true) {
 			var iElm = listElm;
-			var iElmIconText = config.listElmentIconText;
+			var iElmIconText = config.listElmentIconContent;
 				
 				jQuery.each($(iElm), function() { 
 					//console.log($(this).html());

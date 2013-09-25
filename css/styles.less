@@ -11,6 +11,15 @@
   ********************************
   plugin styles
 **********************************/
+
+/*likely to be some default UL/OL styling in place*/
+ul,
+ol {
+  li {
+	  padding:5px 0;
+	}
+}
+
 div.listIconManipulatorExample {
   ul {
 	  list-style-type:none;
@@ -29,25 +38,27 @@ div.listIconManipulatorExample {
 					margin-right:0.5em;
 				}
 				div.miniPopup500 {
-				  color: #eee;
-					border: solid 1px #000;
-					display: block;
-					position: absolute;
+				  color:#eee;
+					border:solid 1px #000;
+					display:block;
+					position:absolute;
 					z-index:7;
-					top: 0;
-					left: 1em;
-					opacity: 0.9;
-					background: #151515;
-					min-width: 196px;
-					padding: 0.2em;
-					font-size: 0.8em;					
+					top:-0.8em;
+					left:1.4em;
+					min-width:196px;
+					padding:0.2em;
+					font-size:0.8em;
+					background:#151515;
+					opacity:0.9;
 				}
 			}
 			span.content {
-			  display: inline-block;
-				position: relative;
-				vertical-align: top;
-				padding-top: 0.8em;
+			  display:inline-block;
+				position:relative;
+				vertical-align:top;
+				text-align:justify;
+				width:95%;
+				padding-top:0.6em;
 				z-index:8;
 			}
 		}

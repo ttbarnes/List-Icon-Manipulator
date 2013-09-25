@@ -18,12 +18,39 @@ div.listIconManipulatorExample {
 		
 		li {
 		  span.icon {
+			  display:inline-block;
+				position:relative;
+				max-height:30px;
+				vertical-align:top;
 			  color:darkred;
+				
 				img {
 				  max-width:30px; 
 					margin-right:0.5em;
 				}
+				div.miniPopup500 {
+				  color: #eee;
+					border: solid 1px #000;
+					display: block;
+					position: absolute;
+					z-index:7;
+					top: 0;
+					left: 1em;
+					opacity: 0.9;
+					background: #151515;
+					min-width: 196px;
+					padding: 0.2em;
+					font-size: 0.8em;					
+				}
+			}
+			span.content {
+			  display: inline-block;
+				position: relative;
+				vertical-align: top;
+				padding-top: 0.8em;
+				z-index:8;
 			}
 		}
 	}
 }
+

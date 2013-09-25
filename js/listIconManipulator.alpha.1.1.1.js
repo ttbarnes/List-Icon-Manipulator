@@ -2,7 +2,7 @@ var config = {
 	listParentSelectors:'div.listIconManipulatorExample ul:first, #customList', //choose 'all' for all UL/OL instances, or select specific parent UL/OL/DIV elements
 	listElmentIconContent:'<img src="http://www.openideas.info/wiki/images/d/d7/Template_warning.png" alt="Warning" />', //the icon content. can be simple text (eg '!*'), or HTML content
 	listElementPopup:true, //popup
-	listElementPopupText:'Warning message here!' //popup text
+	listElementPopupText:'Only avaliable in the UK' //popup text
 }
 
 var listIconManipulator = {
@@ -26,9 +26,12 @@ var listIconManipulator = {
 			console.log('init2 true!')
 		}
 		
-		if (config.listElementPopup == true && /\S/.test(config.listElementPopupText)) { //popup
+		if (config.listElementPopup == true && /\S/.test(config.listElementPopupText)) { //popup (test if true and if the string is not empty and not just whitespace)
 			var iElmPopupText = config.listElementPopupText;
 			init3 = true;
+		}
+		else if (config.listElementPopup == false) {
+			
 		}
 		else {		
 			console.log('error! string is empty or contains purely whitespace. See config.listElementPopupText')
@@ -44,7 +47,7 @@ var listIconManipulator = {
 				jQuery(this).children('li').bind({
 					mouseenter: function testFunctionBinding (e) {
 						var iHover = jQuery(this);
-							var toolTip = jQuery('<div class="miniPopup500">BINGO - miniPopup500</div>').appendTo(this);
+							var toolTip = jQuery('<div class="miniPopup500"></div>').appendTo(this).html(config.listElementPopupText).text();
 							jQuery('div.miniPopup500').show();
 							jQuery(iHover).children('span.title').appendTo('div.toolTip');
 					},

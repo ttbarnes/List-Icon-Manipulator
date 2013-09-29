@@ -1,8 +1,8 @@
 var config = {
 	limParentSelectors:'div.listIconManipulatorExample ul:first, #customList', //choose 'all' for all UL/OL instances, or select specific parent UL/OL/DIV elements
 	limIconContent:'<img src="http://www.openideas.info/wiki/images/d/d7/Template_warning.png" alt="Warning" />', //the icon content. can be simple text (eg '!*'), or HTML content
-	limPopup:true, //popup
-	limPopupText:'Only avaliable in the UK' //popup text
+	limToolTip:true, //toolTip
+	limToolTipText:'Only avaliable in the UK' //toolTip text
 }
 
 var listIconManipulator = {
@@ -25,11 +25,11 @@ var listIconManipulator = {
 			init2 = true;
 		}
 		
-		if (config.limPopup == true && /\S/.test(config.limPopupText)) { //popup (test if true and if the string is not empty and not just whitespace)
-			var limPopupText = config.limPopupText;
+		if (config.limToolTip == true && /\S/.test(config.limToolTipText)) { //popup (test if true and if the string is not empty and not just whitespace)
+			var limToolTipText = config.limToolTipText;
 			init3 = true;
 		}
-		else if (config.limPopup == false) {}
+		else if (config.limToolTip == false) {}
 		else {		
 			console.log('error! string is empty or contains purely whitespace. See config.listElementPopupText')
 		}
@@ -37,18 +37,18 @@ var listIconManipulator = {
 		jQuery.each($(limElmParent), function() {
 			jQuery(this).addClass('listIconManipulator').children('li').wrapInner('<span class="content"></span>').prepend(limElmIcon);
 			
-			if(init3 == true) { //popup
+			if(init3 == true) { //toolTip
 				jQuery(this).children('li').bind({
 					mouseenter: function (e) {
 						var iHover = jQuery(this);
 						iHover.addClass('active');
-						var toolTip = jQuery('<div class="miniPopup500"></div>').hide().appendTo((jQuery(this).children('span.icon'))).html(config.limPopupText).text();
-						jQuery('div.miniPopup500').fadeIn(300).css({
+						var limToolTip = jQuery('<div class="limToolTip"></div>').hide().appendTo((jQuery(this).children('span.icon'))).html(config.limToolTipText).text();
+						jQuery('div.limToolTip').fadeIn(300).css({
 							'z-index':'9'
 						});
 					},
 					mouseleave: function(e) {
-						jQuery(this).removeClass('active').children('span.icon').children('div.miniPopup500').fadeOut(200).remove();
+						jQuery(this).removeClass('active').children('span.icon').children('div.limToolTip').fadeOut(200).remove();
 					},
 				});
 			}

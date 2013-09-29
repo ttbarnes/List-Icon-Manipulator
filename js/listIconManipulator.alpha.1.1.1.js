@@ -56,21 +56,9 @@ var listIconManipulator = {
 					mouseleave: function(e) {
 						jQuery(this).removeClass('active').children('span.icon').children('div.miniPopup500').fadeOut(200).remove();
 					},
-				});	
-				
-				
-			
+				});
 			}
-						
-				
-			
-			
 		});
 	}
-
 }
-
-
-$(document).ready(function(e) {
-  listIconManipulator.init();  
-});
+listIconManipulator.init();

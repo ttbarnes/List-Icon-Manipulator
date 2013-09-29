@@ -47,13 +47,14 @@ var listIconManipulator = {
 				jQuery(this).children('li').bind({
 					mouseenter: function testFunctionBinding (e) {
 						var iHover = jQuery(this);
-							var toolTip = jQuery('<div class="miniPopup500"></div>').hide().appendTo((jQuery(this).children('span.icon'))).html(config.listElementPopupText).text();
-							jQuery('div.miniPopup500').fadeIn(300).css({
-								'z-index':'9'
-							});
+						iHover.addClass('active');
+						var toolTip = jQuery('<div class="miniPopup500"></div>').hide().appendTo((jQuery(this).children('span.icon'))).html(config.listElementPopupText).text();
+						jQuery('div.miniPopup500').fadeIn(300).css({
+							'z-index':'9'
+						});
 					},
-					mouseleave: function(e) {								 
-						jQuery(this).children('span.icon').children('div.miniPopup500').fadeOut(200).remove();
+					mouseleave: function(e) {
+						jQuery(this).removeClass('active').children('span.icon').children('div.miniPopup500').fadeOut(200).remove();
 					},
 				});	
 				

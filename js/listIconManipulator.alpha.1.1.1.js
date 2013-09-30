@@ -1,8 +1,26 @@
 var config = {
-	limParentSelectors:'div.listIconManipulatorExample ul:first, #customList', //choose 'all' for all UL/OL instances, or select specific parent UL/OL/DIV elements
-	limIconContent:'<img src="http://www.openideas.info/wiki/images/d/d7/Template_warning.png" alt="Warning" />', //the icon content. can be simple text (eg '!*'), or HTML content
-	limToolTip:true, //toolTip
-	limToolTipText:'Only avaliable in the UK' //toolTip text
+	oneInstance:{
+		parentSelectors:'div.listIconManipulatorExample ul:first', //choose 'all' for all UL/OL instances, or select specific parent UL/OL/DIV elements
+		iconContent:'<<', //the icon content. can be simple text (eg '!*'), or HTML content
+	},
+	twoInstances:{
+		yesNo:true,
+		lim1:{					
+			parentSelectors:'div.listIconManipulatorExample ul:first', //choose 'all' for all UL/OL instances, or select specific parent UL/OL/DIV elements
+			iconContent:'<img src="http://www.openideas.info/wiki/images/d/d7/Template_warning.png" alt="Warning" />', //the icon content. can be simple text (eg '!*'), or HTML content
+		},
+		lim2:{
+			parentSelectors:'#customList',
+			iconContent:'!-WARNING-!',
+		}
+	},
+	toolTip:true, //toolTip
+	toolTipText:'Only avaliable in the UK' //toolTip text
+	
+	//limParentSelectors:'div.listIconManipulatorExample ul:first, #customList', //choose 'all' for all UL/OL instances, or select specific parent UL/OL/DIV elements
+	//limIconContent:'<img src="http://www.openideas.info/wiki/images/d/d7/Template_warning.png" alt="Warning" />', //the icon content. can be simple text (eg '!*'), or HTML content
+	//limToolTip:true, //toolTip
+	//limToolTipText:'Only avaliable in the UK' //toolTip text
 }
 
 var listIconManipulator = {

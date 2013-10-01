@@ -2,7 +2,7 @@ var config = {
 	parentSelectors:'div.listIconManipulatorExample ul:first, #customList', //choose 'all' for all UL/OL instances, or select specific parent UL/OL/DIV elements
 	iconContent:'<img src="http://www.openideas.info/wiki/images/d/d7/Template_warning.png" alt="Warning" />', //the icon content. can be simple text (eg '!*'), or HTML content
 	toolTip:true, //toolTip
-	toolTipText:'Only avaliable in the UK' //toolTip text
+	toolTipContent:'Only avaliable in the UK <a href="#">More info</a>' //toolTip text
 }
 
 var listIconManipulator = {
@@ -43,7 +43,7 @@ var listIconManipulator = {
 						mouseenter: function (e) {
 							var iHover = jQuery(this);
 							iHover.addClass('active');
-							var toolTip = jQuery('<div class="toolTip"></div>').hide().appendTo((jQuery(this).children('span.icon'))).html(config.toolTipText).text();
+							var toolTip = jQuery('<div class="toolTip"></div>').hide().appendTo((jQuery(this).children('span.icon'))).html(config.toolTipContent).text();
 							jQuery('div.toolTip').fadeIn(300).css({
 								'z-index':'9'
 							});

@@ -1,6 +1,6 @@
 var config = {
 	parentSelectors:'div.listIconManipulatorExample ul:first, #customList', //choose 'all' for all UL/OL instances, or select specific parent UL/OL/DIV elements
-	iconContent:'<img src="http://www.openideas.info/wiki/images/d/d7/Template_warning.png" alt="Warning" />', //the icon content. can be simple text (eg '!*'), or HTML content
+	iconContent:'<img src="img/icon-warning.png" alt="Warning" />', //the icon content. can be simple text (eg '!*'), or HTML content
 	toolTip:true, //toolTip
 	toolTipContent:'Only avaliable in the UK <a href="#">More info</a>' //toolTip text
 }

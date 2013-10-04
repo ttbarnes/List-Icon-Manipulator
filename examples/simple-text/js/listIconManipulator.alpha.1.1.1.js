@@ -1,8 +1,6 @@
 var config = {
 	parentSelectors:'all', //choose 'all' for all UL/OL instances, or select specific parent UL/OL/DIV elements
-	iconContent:'>>', //the icon content. can be simple text (eg '!*'), or HTML content
-	toolTip:true, //toolTip
-	toolTipContent:'Only avaliable in the UK <a href="#">More info</a>' //toolTip text
+	iconContent:'>>', //the icon content. for anything other than text/symbols, see other plugin versions
 }
 
 var listIconManipulator = {
@@ -10,49 +8,18 @@ var listIconManipulator = {
 		
 		elmIcon = '<span class="icon">' + config.iconContent + '</span>';
 		
-		  if (config.parentSelectors == 'all' && /\S/.test(config.toolTipText) ){ //parent list selectors
-				var elmParent = 'ul, ol';
-				init1 = true;
-			} 
-			else {
-				var elmParent = config.parentSelectors;
-				init2 = true;
-			}
-			
-			if (config.toolTip == true && /\S/.test(config.toolTipText)) { //popup (test if true and if the string is not empty and not just whitespace)
-				initTooltip = true;
-			}
-			else if (config.toolTip == false) {}
-			else {		
-				console.log('error! string is empty or contains purely whitespace. See config.toolTipText')
-			}
-			
-			jQuery.each($(elmParent), function() {
-				jQuery(this).addClass('listIconManipulator').children('li').wrapInner('<span class="content"></span>').prepend(elmIcon);
-				
-				
-				jQuery(this).children('li').bind({
-					mouseenter: function (e) {
-						var iHover = jQuery(this);
-						iHover.addClass('active');
+		if (config.parentSelectors == 'all' && /\S/.test(config.parentSelectors) ){ //parent list selectors
+			var elmParent = 'ul, ol';
+			init1 = true;
+		} 
+		else {
+			var elmParent = config.parentSelectors;
+			init2 = true;
+		}
 		
-						if(initTooltip == true) { //toolTip
-							var toolTip = jQuery('<div class="toolTip"></div>').hide().appendTo((jQuery(this).children('span.icon'))).html(config.toolTipContent).text();
-							jQuery('div.toolTip').fadeIn(300).css({
-								'z-index':'9'
-							});
-						}
-					},
-					mouseleave: function(e) {
-						jQuery(this).removeClass('active');
-						if(initTooltip == true) {
-							jQuery(this).children('span.icon').children('div.toolTip').fadeOut(200).remove();
-						}
-					},
-				});
-			});
-			
-		
+		jQuery.each($(elmParent), function() {
+			jQuery(this).addClass('listIconManipulator').children('li').wrapInner('<span class="content"></span>').prepend(elmIcon);
+		});
 	}
 }
 listIconManipulator.init();

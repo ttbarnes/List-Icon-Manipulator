@@ -10,7 +10,7 @@ var listIconManipulator = {
 		
 		elmIcon = '<span class="icon">' + config.iconContent + '</span>';
 		
-		  if (config.parentSelectors == 'all' && /\S/.test(config.toolTipText) ){ //parent list selectors
+		  if (config.parentSelectors == 'all' && /\S/.test(config.iconContent) ){ //parent list selectors
 				var elmParent = 'ul, ol';
 				init1 = true;
 			} 
@@ -19,12 +19,12 @@ var listIconManipulator = {
 				init2 = true;
 			}
 			
-			if (config.toolTip == true && /\S/.test(config.toolTipText)) { //popup (test if true and if the string is not empty and not just whitespace)
+			if (config.toolTip == true && /\S/.test(config.toolTipContent)) { //popup (test if true and if the string is not empty and not just whitespace)
 				initTooltip = true;
 			}
 			else if (config.toolTip == false) {}
 			else {		
-				console.log('error! string is empty or contains purely whitespace. See config.toolTipText')
+				console.log('error! string is empty or contains purely whitespace. See config.toolTipContent')
 			}
 			
 			jQuery.each($(elmParent), function() {

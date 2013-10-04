@@ -23,9 +23,9 @@ var listIconManipulator = {
 				initTooltip = true;
 			}
 			else if (config.toolTip == false) {}
-			/*else {		
+			else {		
 				console.log('error! string is empty or contains purely whitespace. See config.toolTipText')
-			}*/
+			}
 			
 			jQuery.each($(elmParent), function() {
 				jQuery(this).addClass('listIconManipulator').children('li').wrapInner('<span class="content"></span>').prepend(elmIcon);

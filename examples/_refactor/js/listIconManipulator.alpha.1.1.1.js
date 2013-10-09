@@ -1,58 +1,32 @@
-var config = {
-	parentSelectors:'div.listIconManipulatorExample ul:first, #customList', //choose 'all' for all UL/OL instances, or select specific parent UL/OL/DIV elements
-	iconContent:'<img src="img/icon-warning.png" alt="Warning" />', //the icon content. can be simple text (eg '!*'), or HTML content
-	toolTip:true, //toolTip
-	toolTipContent:'Only avaliable in the UK <a href="#">More info</a>' //toolTip text
-}
+;(function($){
 
-var listIconManipulator = {
-	init: function(){	
+	var methods = {
+		init : function(options) {
 		
-		elmIcon = '<span class="icon">' + config.iconContent + '</span>';
-		
-		  if (config.parentSelectors == 'all' && /\S/.test(config.iconContent) ){ //parent list selectors
-				var elmParent = 'ul, ol';
-				init1 = true;
-			} 
-			else {
-				var elmParent = config.parentSelectors;
-				init2 = true;
-			}
+			var config = $.extend({ //default settings
 			
-			if (config.toolTip == true && /\S/.test(config.toolTipContent)) { //popup (test if true and if the string is not empty and not just whitespace)
-				initTooltip = true;
-			}
-			else if (config.toolTip == false) {}
-			else {		
-				console.log('error! string is empty or contains purely whitespace. See config.toolTipContent')
-			}
+				content: {
+					
+				}
 			
-			jQuery.each($(elmParent), function() {
-				jQuery(this).addClass('listIconManipulator').children('li').wrapInner('<span class="content"></span>').prepend(elmIcon);
+			}, options);
+			
+			return this.each(function(){
 				
-				
-				jQuery(this).children('li').bind({
-					mouseenter: function (e) {
-						var iHover = jQuery(this);
-						iHover.addClass('active');
-		
-						if(initTooltip == true) { //toolTip
-							var toolTip = jQuery('<div class="toolTip"></div>').hide().appendTo((jQuery(this).children('span.icon'))).html(config.toolTipContent).text();
-							jQuery('div.toolTip').fadeIn(300).css({
-								'z-index':'9'
-							});
-						}
-					},
-					mouseleave: function(e) {
-						jQuery(this).removeClass('active');
-						if(initTooltip == true) {
-							jQuery(this).children('span.icon').children('div.toolTip').fadeOut(200).remove();
-						}
-					},
-				});
-			});
 			
-		
-	}
-}
-listIconManipulator.init();
+		  });
+		}
+	};
+  $.fn.listIconManipulator = function(method) {
+    if (methods[method]) {
+      return methods[method].apply( this, Array.prototype.slice.call( arguments, 1 ));
+    } 
+		else if ( typeof method === 'object' || ! method ) {
+      return methods.init.apply( this, arguments );
+    } 
+		else {
+      $.error('listIconManipulator Error! Something has gone wrong. Please see the original codebase, or contact the author');
+    } 
+  };
+	return this;
+})(jQuery);

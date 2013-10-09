@@ -52,16 +52,16 @@
     $(document).ready(function(e) {
       $('div.listIconManipulatorExample ul:first').listIconManipulator({
 				content: {
-					iconContent: '>>',
+					iconContent: '!>',
 					tooltip:true,
-					tooltipContent:'tiptool test!'
+					tooltipContent:'first tooltip text'
 				}
 			});
       $('#customList').listIconManipulator({
 				content: {
-					iconContent: '!!',
-					tooltip:false,
-					tooltipContent:'tiptool test!'
+					iconContent: '!*!',
+					tooltip:false
+					//tooltipContent:'different tiptool text'
 				}
 			});
 		});

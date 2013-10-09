@@ -13,7 +13,20 @@
 			
 			}, options);
 			
+			
+			
+			
 			return this.each(function(){
+			
+			//if (config.content.tooltip == true && /\S/.test(config.content.tooltipContent)) { //popup (test if true and if the string is not empty and not just whitespace)
+			/*if (config.content.tooltip == true) {	
+				initTooltip = true;
+			}
+			//else if (config.toolTip == false) {}
+			if (config.content.tooltip == false) {
+			//  initTooltip = false;	
+			}
+			*/
 				
 				elmIcon = '<span class="icon">' + config.content.iconContent + '</span>';
 				/*
@@ -27,7 +40,25 @@
 				}
 				*/
 				jQuery(this).addClass('listIconManipulator').children('li').wrapInner('<span class="content"></span>').prepend(elmIcon);
-				
+		
+		
+				if(config.content.tooltip == true) { //toolTip		
+					jQuery(this).children('li').bind({
+						mouseenter: function (e) {
+							var iHover = jQuery(this);
+							iHover.addClass('active');
+		
+							var toolTip = jQuery('<div class="toolTip"></div>').hide().appendTo((jQuery(this).children('span.icon'))).html(config.content.tooltipContent).text();
+							jQuery('div.toolTip').fadeIn(300).css({
+								'z-index':'9'
+							});
+						},
+						mouseleave: function(e) {
+							jQuery(this).removeClass('active');
+							jQuery(this).children('span.icon').children('div.toolTip').fadeOut(200).remove();
+						},
+					});
+				}
 		  });
 		}
 	};

@@ -8,7 +8,7 @@
 				content: {
 					iconContent: '>>',
 					tooltip:true,
-					tooltipContent:'My tooltip content <a href="#">More info</a>'
+					tooltipContent:'Default tooltip content <a href="#">More info</a>'
 				}
 			
 			}, options);
@@ -16,20 +16,34 @@
 			
 			return this.each(function(){
 			
-				init1 = false;
-				if (/\S/.test(config.content.iconContent)){ //make sure iconContent is not empty
+				///////////////////
+				//options/config
+				///////////////////
+				init2 = false; //tooltip
+				
+				if(/\S/.test(config.content.iconContent)){ //icon content
 					init1 = true;
+				} else {
+					init1 = false;
 				}
 				
-				if(init1 == true){
+				if(config.content.tooltip == true && /\S/.test(config.content.tooltipContent)){ //tooltip rules
+					init2 = true;							
+				} else {
+				  //console.log('listIconManipulator error! string is undefined, empty or contains whitespace. See config.content.tooltipContent')
+					init2 = false;
+				}
+				
+				
+				///////////////////
+				//methods
+				///////////////////
+				if(init1 == true){ //icon content
 					elmIcon = '<span class="icon">' + config.content.iconContent + '</span>';
 					jQuery(this).addClass('listIconManipulator').children('li').wrapInner('<span class="content"></span>').prepend(elmIcon);
 				}
-				else {
-					console.log('listIconManipulator error! string is empty or contains purely whitespace. See config.content.iconContent')
-				}
 				
-				if(config.content.tooltip == true) { //tooltip		
+				if(init2 == true) { //tooltip		
 					jQuery(this).children('li').bind({
 						mouseenter: function (e) {
 							var iHover = jQuery(this);

@@ -8,32 +8,20 @@
 				content: {
 					iconContent: '>>',
 					tooltip:true,
-					tooltipContent:'tiptool test!'
+					tooltipContent:'My tooltip content <a href="#">More info</a>'
 				}
 			
 			}, options);
 			
 			
-			
-			
 			return this.each(function(){
 			
-			//if (config.content.tooltip == true && /\S/.test(config.content.tooltipContent)) { //popup (test if true and if the string is not empty and not just whitespace)
-			/*if (config.content.tooltip == true) {	
-				initTooltip = true;
-			}
-			//else if (config.toolTip == false) {}
-			if (config.content.tooltip == false) {
-			//  initTooltip = false;	
-			}
-			*/
+				init1 = false;
+				if (/\S/.test(config.content.iconContent)){ //make sure iconContent is not empty
+					init1 = true;
+				}
 				
-			init1 = false;
-			if (/\S/.test(config.content.iconContent)){ //make sure iconContent is not empty
-				init1 = true;
-			}
-				
-			if(init1 == true){
+				if(init1 == true){
 					elmIcon = '<span class="icon">' + config.content.iconContent + '</span>';
 					jQuery(this).addClass('listIconManipulator').children('li').wrapInner('<span class="content"></span>').prepend(elmIcon);
 				}
@@ -41,20 +29,7 @@
 					console.log('listIconManipulator error! string is empty or contains purely whitespace. See config.content.iconContent')
 				}
 				
-				/*
-				if (config.content.parentSelectors == 'all' && /\S/.test(config.content.parentSelectors) ){ //parent list selectors
-					var elmParent = 'ul, ol';
-					init1 = true;
-				} 
-				else {
-					var elmParent = config.content.parentSelectors;
-					init2 = true;
-				}
-				*/
-				
-		
-		
-				if(config.content.tooltip == true) { //toolTip		
+				if(config.content.tooltip == true) { //tooltip		
 					jQuery(this).children('li').bind({
 						mouseenter: function (e) {
 							var iHover = jQuery(this);

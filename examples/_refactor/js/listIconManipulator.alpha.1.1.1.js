@@ -28,7 +28,19 @@
 			}
 			*/
 				
-				elmIcon = '<span class="icon">' + config.content.iconContent + '</span>';
+			init1 = false;
+			if (/\S/.test(config.content.iconContent)){ //make sure iconContent is not empty
+				init1 = true;
+			}
+				
+			if(init1 == true){
+					elmIcon = '<span class="icon">' + config.content.iconContent + '</span>';
+					jQuery(this).addClass('listIconManipulator').children('li').wrapInner('<span class="content"></span>').prepend(elmIcon);
+				}
+				else {
+					console.log('listIconManipulator error! string is empty or contains purely whitespace. See config.content.iconContent')
+				}
+				
 				/*
 				if (config.content.parentSelectors == 'all' && /\S/.test(config.content.parentSelectors) ){ //parent list selectors
 					var elmParent = 'ul, ol';
@@ -39,7 +51,7 @@
 					init2 = true;
 				}
 				*/
-				jQuery(this).addClass('listIconManipulator').children('li').wrapInner('<span class="content"></span>').prepend(elmIcon);
+				
 		
 		
 				if(config.content.tooltip == true) { //toolTip		
@@ -70,7 +82,7 @@
       return methods.init.apply( this, arguments );
     } 
 		else {
-      $.error('listIconManipulator Error! Something has gone wrong. Please see the original codebase, or contact the author');
+      $.error('listIconManipulator error! Something has gone wrong. Please see the original codebase, or contact the author');
     } 
   };
 	return this;

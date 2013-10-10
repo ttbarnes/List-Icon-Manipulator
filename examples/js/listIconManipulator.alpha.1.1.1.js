@@ -23,24 +23,23 @@
 					init1 = false;
 				}
 				
-				if(config.content.tooltip == true && /\S/.test(config.content.tooltipContent)){ //tooltip rules
+				if(config.content.tooltip === true && /\S/.test(config.content.tooltipContent)){ //tooltip rules
 					init2 = true;							
 				} else {
-				  //console.log('listIconManipulator error! string is undefined, empty or contains whitespace. See config.content.tooltipContent')
 					init2 = false;
 				}
 				
 				///////////////////
 				//methods
 				///////////////////
-				if(init1 == true){ //icon content
+				if(init1 === true){ //icon content
 					elmIcon = '<span class="icon">' + config.content.iconContent + '</span>';
 					jQuery(this).addClass('listIconManipulator').children('li').wrapInner('<span class="content" />').prepend(elmIcon);
 				}
 				
-				if(init2 == true) { //tooltip		
+				if(init2 === true) { //tooltip		
 					jQuery(this).children('li').bind({
-						mouseenter: function (e){
+						mouseenter: function(){
 							var iHover = jQuery(this);
 							iHover.addClass('active');
 		
@@ -49,7 +48,7 @@
 								'z-index':'9'
 							});
 						},
-						mouseleave: function(e){
+						mouseleave: function(){
 							jQuery(this).removeClass('active');
 							jQuery(this).children('span.icon').children('div.toolTip').fadeOut(200).remove();
 						},

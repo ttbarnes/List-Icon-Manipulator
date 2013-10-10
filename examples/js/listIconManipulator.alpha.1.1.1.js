@@ -2,17 +2,13 @@
 
 	var methods = {
 		init : function(options) {
-		
 			var config = $.extend({ //default settings
-			
 				content: {
 					iconContent: '>>',
 					tooltip:true,
 					tooltipContent:'Default tooltip content <a href="#">More info</a>'
 				}
-			
 			}, options);
-			
 			
 			return this.each(function(){
 			
@@ -34,18 +30,17 @@
 					init2 = false;
 				}
 				
-				
 				///////////////////
 				//methods
 				///////////////////
 				if(init1 == true){ //icon content
 					elmIcon = '<span class="icon">' + config.content.iconContent + '</span>';
-					jQuery(this).addClass('listIconManipulator').children('li').wrapInner('<span class="content"></span>').prepend(elmIcon);
+					jQuery(this).addClass('listIconManipulator').children('li').wrapInner('<span class="content" />').prepend(elmIcon);
 				}
 				
 				if(init2 == true) { //tooltip		
 					jQuery(this).children('li').bind({
-						mouseenter: function (e) {
+						mouseenter: function (e){
 							var iHover = jQuery(this);
 							iHover.addClass('active');
 		
@@ -54,7 +49,7 @@
 								'z-index':'9'
 							});
 						},
-						mouseleave: function(e) {
+						mouseleave: function(e){
 							jQuery(this).removeClass('active');
 							jQuery(this).children('span.icon').children('div.toolTip').fadeOut(200).remove();
 						},

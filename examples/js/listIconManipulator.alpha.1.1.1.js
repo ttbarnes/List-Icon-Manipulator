@@ -43,7 +43,7 @@
 							var iHover = jQuery(this);
 							iHover.addClass('active');
 		
-							var toolTip = jQuery('<div class="toolTip"></div>').hide().appendTo((jQuery(this).children('span.icon'))).html(config.content.tooltipContent).text();
+							jQuery('<div class="toolTip"></div>').hide().appendTo((jQuery(this).children('span.icon'))).html(config.content.tooltipContent).text();
 							jQuery('div.toolTip').fadeIn(300).css({
 								'z-index':'9'
 							});

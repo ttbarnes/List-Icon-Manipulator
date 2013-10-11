@@ -1,3 +1,18 @@
+/*
+	* List Icon Manipulator 1.1.1
+	* Easily add custom bullet points, list icons and tooltips
+	* http://github.com/ttbarnes/List-Icon-Manipulator
+	*
+	* Author: Tony Barnes
+	* http://tonybarnes.me
+	* No license or copyright - do what you like
+	*
+	* Last updated: 11/10/2013
+	* Requirments:
+	* 1: jQuery
+	*
+*/
+
 ;(function($){
 
 	var methods = {

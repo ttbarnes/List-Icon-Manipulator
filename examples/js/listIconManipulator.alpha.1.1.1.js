@@ -39,6 +39,13 @@
 					limIContent = false;
 				}
 				
+				if(/\S/.test(config.content.iconColor)){ //icon color
+					limIconClr = true;
+				} else {
+					limIconClr = false;
+				}
+				
+				
 				if(config.content.tooltip === true && /\S/.test(config.content.tooltipContent)){ //tooltip rules
 					limTTipContent = true;							
 				} else {
@@ -49,7 +56,16 @@
 				//methods
 				///////////////////
 				if(limIContent === true){ //icon content
-					elmIcon = '<span class="icon">' + config.content.iconContent + '</span>';
+					
+				
+				
+					if (limIconClr === true){
+						var iClr = config.content.Icon;
+						var elmIcon = jQuery('<span class="icon">'+config.content.iconContent+'</span>').css(iClr);
+					}
+					else {
+						var elmIcon = '<span class="icon">' + config.content.iconContent + '</span>';
+				  }
 					jQuery(this).addClass('listIconManipulator').children('li').wrapInner('<span class="content" />').prepend(elmIcon);
 				}
 				

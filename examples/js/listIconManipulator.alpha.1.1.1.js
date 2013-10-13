@@ -20,6 +20,7 @@
 			var config = $.extend({ //default settings
 				content: {
 					iconContent: '>>',
+					iconColor: '#BADA55',
 					tooltip:true,
 					tooltipContent:'Default tooltip content <a href="#">More info</a>'
 				}
@@ -30,29 +31,29 @@
 				///////////////////
 				//options/config
 				///////////////////
-				init2 = false; //tooltip
+				limTTipContent = false; //tooltip
 				
 				if(/\S/.test(config.content.iconContent)){ //icon content
-					init1 = true;
+					limIContent = true;
 				} else {
-					init1 = false;
+					limIContent = false;
 				}
 				
 				if(config.content.tooltip === true && /\S/.test(config.content.tooltipContent)){ //tooltip rules
-					init2 = true;							
+					limTTipContent = true;							
 				} else {
-					init2 = false;
+					limTTipContent = false;
 				}
 				
 				///////////////////
 				//methods
 				///////////////////
-				if(init1 === true){ //icon content
+				if(limIContent === true){ //icon content
 					elmIcon = '<span class="icon">' + config.content.iconContent + '</span>';
 					jQuery(this).addClass('listIconManipulator').children('li').wrapInner('<span class="content" />').prepend(elmIcon);
 				}
 				
-				if(init2 === true) { //tooltip		
+				if(limTTipContent === true) { //tooltip		
 					jQuery(this).children('li').bind({
 						mouseenter: function(){
 							var iHover = jQuery(this);

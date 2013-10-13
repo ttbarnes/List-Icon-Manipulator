@@ -1,6 +1,6 @@
 /*
 	* List Icon Manipulator 1.1.1
-	* Easily add custom bullet points, list icons and tooltips
+	* Custom bullet points and list icon
 	* http://github.com/ttbarnes/List-Icon-Manipulator
 	*
 	* Author: Tony Barnes

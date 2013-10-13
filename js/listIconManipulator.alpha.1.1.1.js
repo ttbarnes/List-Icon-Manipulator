@@ -41,6 +41,7 @@
 				
 				if(/\S/.test(config.content.iconColor)){ //icon color
 					limIconClr = true;
+					var iClr = config.content.iconColor;
 				} else {
 					limIconClr = false;
 				}
@@ -55,17 +56,14 @@
 				///////////////////
 				//methods
 				///////////////////
-				if(limIContent === true){ //icon content
-					
-				
-					var iClr = config.content.iconColor;
-					//console.log(config.content.iconColor)
+				if(limIContent === true){ //icon content, colour
+					var iCont = config.content.iconContent;
 					
 					if (limIconClr === true){
-						var elmIcon = jQuery('<span class="icon">'+config.content.iconContent+'</span>').css('color',iClr);
+						var elmIcon = jQuery('<span class="icon">'+iCont+'</span>').css('color',iClr);
 					}
 					else {
-						var elmIcon = jQuery('<span class="icon">' + config.content.iconContent + '</span>');
+						var elmIcon = '<span class="icon">'+iCont+'</span>';
 				  }
 					jQuery(this).addClass('listIconManipulator').children('li').wrapInner('<span class="content" />').prepend(elmIcon);
 				}

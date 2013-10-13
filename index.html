@@ -1,68 +1,78 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html">
-    <title>List Icon Manipulator 1.1.1 </title>
-    <meta name="viewport" content="height=device-height,width=device-width,initial-scale=1.0,maximum-scale=1.0"/>
-    <link rel="stylesheet" href="css/demo.min.css" />
-    <link rel="stylesheet" href="css/styles.min.css" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>List Icon Manipulator - Skeleton</title>
+    <link rel="stylesheet" href="css/foundation.css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/demo.css">
+    <link rel="stylesheet" href="css/lim.styles.css">
   </head>
   <body>
-    <div class="header">
-      <h1>List Icon Manipulator<span> 1.1.1</span></h1>
-    </div>
-    <div class="wrapper">
-      <div class="listIconManipulatorExample">
-        <ul id="exampleWrapper">
-          <ul id="featured">
-            <li>Featured list item</li>
-          </ul>
-          <li>Dummy list item</li>
-          <li>List item test</li>
-          <ul id="cool"> 
-            <li>Cool icon/image</li>
-          </ul>
-          <ul id="badassList"> 
-            <li>My favourite list item</li>
-            <li>Test list item</li>
-            <li>Eat my bullet point</li>
-          </ul>
-          <ul id="toolTipMe">
-            <li>Tooltip me - hella Terry Richardson</li>
-          </ul>
-        </ul>
+	  <div class="row" id="sectionExamples">
+      <div class="large-12 columns" id="limExamples">
+        <div class="content">
+          <h2>List Icon Manipulator - Skeleton</h2>
+          <div class="large-2 columns">
+            <div class="panel">
+            
+              <!-- list item examples START -->
+              <ul id="exampleWrapper">            
+                <li>Dummy list item</li>
+                <ul id="featured">
+                  <li>Featured list item</li>
+                </ul>
+                <li>List item test</li>
+                <ul id="notification">
+                  <li>Test list item</li>
+                  <li>Eat my bullet point</li>
+                </ul>
+                <ul id="warning">
+                  <li>Tooltip me - hella Terry Richardson</li>
+                </ul>
+              </ul>
+              <!-- list item examples END -->
+              
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="bottom">
-        <p>Author: <a href="http://tonybarnes.me" title="tonybarnes.me">Tony Barnes</a></p>
-      </div>
     </div>
-    
     <div class="footer">
-      <h2>&#8249;/div&#8250;</h2>
+      <p>Author: <a href="http://tonybarnes.me" title="tonybarnes.me">Tony Barnes</a></p>
+      <p class="last">&#8249;/div&#8250;</p>
     </div>    
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="js/listIconManipulator.1.1.1.min.js"></script>
-    <script src="js/demo.js"></script>
     <script type="text/javascript">
     $(document).ready(function(e) {
-			/*
-      $('div.listIconManipulatorExample ul:first').listIconManipulator({
+			$('#exampleWrapper').listIconManipulator({
+				content: {
+					iconContent:'!>',
+					iconColor:'#EEE'
+				}
+			});
+			$('#featured').listIconManipulator({
+				content: {
+					iconContent:'*',
+					iconColor:'red'
+				}
+			});
+			$('#notification').listIconManipulator({
+				content: {
+					iconContent:'!!!',
+					iconColor:'#333'
+				}
+			});
+			$('#warning').listIconManipulator({
 				content: {
 					iconContent: '!>',
-					//iconColor: '#BADA55',
+					iconColor:'#EEE',
 					tooltip:true,
-					tooltipContent:'my tooltip text'
+					tooltipContent:'Boo!'
 				}
 			});
-      $('#customList').listIconManipulator({
-				content: {
-					iconContent: '\\o/',
-					//iconColor: 'darkorange',
-					tooltip:false
-					//tooltipContent:'no.2 tooltip text'
-				}
-			});
-			*/
 		});
 		</script>
   </body>

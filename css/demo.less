@@ -1,194 +1,155 @@
-/********************************
-* List Icon Manipulator 1.1.1
-	* Custom bullet points and list icons
-	* http://github.com/ttbarnes/List-Icon-Manipulator
-	*
-	* Author: Tony Barnes
-	* http://tonybarnes.me
-	* No license or copyright - do what you like
-	*
-	* Last updated: 13/10/2013
-  ********************************
-  plugin demo styles
-**********************************/
-/*reset*/
-h6,h5,h4,h3,h2,p,ol,h1,td,th,blockquote,textarea,input,fieldset,form,pre,li,ul,dd,dt,dl,div,body,legend{margin:0;padding:0}legend,table{border-collapse:collapse;border-spacing:0}var,th,dfn,code,cite,caption,address{font-style:normal}var,th,dfn,code,cite,caption,address,h6,h5,h4,h3,h2,h1{font-weight:400}ul,ol{list-style:none}th,caption{text-align:left}h6,h5,h4,h3,h2,h1{font-size:100%}q:after,q:before{content:''}legend,img,fieldset,acronym,abbr,input[type=image]{border:0;}
+@bgBlue:#b6d5e6;
+@bgGreen1:#a7ccb5;
+@bgBrown:#cac5a8;
+@bgGrey:#D3D3D3;
+@bgGreen2:#b8c19d;
 
-html {
-	background:#181818;
-}
+@clrBlack1:#222;
 
+@clrBlueDark:#366681;
+@clrBlueLight:#96AEBC;
+
+@clrGreenDark:#266741;
+@clrGreenLight:#68a581;
+
+@clrBrownDark:#675826;
+@clrBrownLight:#aca47f;
+
+
+
+/************************************
+main - reset/typography
+*************************************/
 body {
-	font-family:courier new, arial;
-	color:#888;
-	background-image:linear-gradient(bottom, rgb(53,53,53) 18%, rgb(24,24,24) 100%);
-	background-image:-o-linear-gradient(bottom, rgb(53,53,53) 18%, rgb(24,24,24) 100%);
-	background-image:-moz-linear-gradient(bottom, rgb(53,53,53) 18%, rgb(24,24,24) 100%);
-	background-image:-webkit-linear-gradient(bottom, rgb(53,53,53) 18%, rgb(24,24,24) 100%);
-	background-image:-ms-linear-gradient(bottom, rgb(53,53,53) 18%, rgb(24,24,24) 100%);
-	background-image:-webkit-gradient(
-		linear,
-		left bottom,
-		left top,
-		color-stop(0.18, rgb(53,53,53)),
-		color-stop(1, rgb(24,24,24))
-	);
-}
-
-::-moz-selection {
-  background:#141414;
-  color:#CCC;
-  text-shadow:none;
-}
-::selection {
-  background:#141414;
-  color:#CCC;
-  text-shadow:none;
+  text-align:center;
+	color:#919191;
+	background:@clrBlack1;
 }
 
 ul,
 ol {
-  padding:20px 0 20px 35px !important;
-	border-bottom:solid 1px #444;
+  list-style-type:none;
 }
 
-/*main content*/
-.wrapper {
-	position:relative;
+@media only screen {
+	.column, .columns {
+	  padding-top:6em;
+		padding-bottom:6em;
+	}
+}
+
+/************************************
+shared page/element layout, padding
+*************************************/
+div.row .large-12 .content,
+.contain-to-grid .content,
+#sectionDownload .content large-1 {
+	width:100%;
+	max-width:1000px;
 	margin:0 auto;
-	width:1000px;
 }
 
-/*header*/
-.header {
-	margin-bottom:40px;
-	background:#353535;
+#sectionIntro	.topLimExampleWrapper,
+div.innerWrap {
+  clear:both;
+	width:100%;
+	margin:0 auto;
 	text-align:center;
-	color:#888;
-	
-	h1 {
-		padding:25px 10px;
-		font-size:2.1em;
-		
-		span {
-			color:#414141;
-			font-size:0.8em;
-		}
-	}
-	
-	p {
-		display:none;
-		color:#565656;
-		letter-spacing:-2px;
-		font-size:0.950em;
-		padding:0 10px 25px 10px;
-		
-		span {
-			font-size:0.9em;
-			color:#555;
-		}
+	font-size:1.2em;
+	.listIconManipulator {
+	  text-align:center;
 	}
 }
 
-/*bottom info*/
-.bottom {
-	margin:40px 0 60px 0;
+#limExamples {
+	background:@bgBrown;
+  color:@clrBrownDark;
 	
-	* {
-		color:#888;
+	::-moz-selection {
+		background:@clrBrownDark;
+		color:#E6E6E6;
+		text-shadow:none;
 	}
-
-	p {
-	  margin-bottom:0.5em;
+	::selection {
+		background:@clrBrownDark;
+		color:#E6E6E6;
+		text-shadow:none;
 	}
+	
+	h2,
 	a {
-	  font-weight:bold;
-		color:#999;
-		&:hover {
-			text-decoration:none;
-		}
+	  color:@clrBrownDark;
 	}
-}
-
-/*footer*/
-.footer {
-	background:#222;
-	min-height:100px;
-	text-align:center;
-	font-family:courier new, arial;
-	color:#888;
-	
-	h2 {
-		padding-top:35px;
-		font-size:1.4em;
-	}
-
-}
-
-@media(max-width:1000px){
-  ul,
-	ol {
-	  font-size:0.950em;
-		li {
-		  padding:3px 0;
-		}
-	}
-	.wrapper {
-		width:100%;	
-	}
-	.header {
-		margin-bottom:30px;
-	}
-	.header h1 {
-		font-size:2em;
-		padding:15px 10px;
-	}
-	.listIconManipulatorExample {
-	  padding:20px 20px 0 20px;
-	}
-	.bottom {
-	  margin:20px 20px 35px 20px;
-		text-align:center;
-		font-size:0.9em;
-		
-		p {
-			padding:0.5em 0 0.8em 0;
-			margin:0.5em 0;
-			border-bottom:solid 1px #444;
+	.large-2 {
+	  padding-top:1em;
+	  padding-bottom:1em;
+		.panel {
+			padding:.5em .5em .7em .5em;
+			width:98%;
+			background:#CCC;
+			position:relative;
+			margin:0 auto;
 			
-			&.last {
-			  border:0 none;
-				margin-bottom:0;
-				padding-bottom:0;
+			h5 {
+			  color:#AAA;
+				text-align:left;
+				padding:0 0.5em;
+				text-decoration:underline; 
+			}
+			ul {
+			  margin:0;
+				padding:0 0.5em;
+				
+				li {
+					padding:0 0.5em;
+				}
+				ul li {
+					padding:0;
+				}
+				div.toolTip {
+					color:#EEE;
+					a {
+						color:#EEE;
+						text-decoration:underline;
+						&:hover {
+							text-decoration:none;
+						}
+					}
+				}
+				&.moreInfo {
+				  div.toolTip {
+					  min-width:100px;
+					}
+				}
+				&.warning {
+				  div.toolTip {
+					  min-width:165px;
+					}
+				}
+				
+				&.textReplace {						
+				  span.icon {
+						display: inline-block;
+						min-width: 44px;
+					}
+				}
+				
+
+				&.toolTipMe {
+				  div.toolTip {
+					  min-width:80px;
+					}
+				}
+			
 			}
 		}
-		a {
-		  &:hover {
-				text-decoration:underline;
-			}
-		}
-	}
-	.footer h2 {
-		font-size:1.3em;
 	}
 }
 
-@media(max-width:480px) {
-	h3 {
-		padding:1em;
+.footer {
+  padding:1em 0;
+  p.last {
+	  color:#303030;
+	  font-size:2.5em;
 	}
-	.header {
-		margin-bottom:0;
-	}
-	.header h1 {
-		font-size:1.5em;
-	}
-	.bottom {
-	  margin:15px 10px 20px 10px;
-		font-size:0.8em;
-	}
-	.footer h2 {
-		font-size:1em;
-	}
-	
 }

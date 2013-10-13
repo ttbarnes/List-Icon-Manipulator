@@ -20,7 +20,7 @@
 			var config = $.extend({ //default settings
 				content: {
 					iconContent: '>>',
-					iconColor: '#BADA55',
+					iconColor: false,
 					tooltip:true,
 					tooltipContent:'Default tooltip content <a href="#">More info</a>'
 				}
@@ -58,13 +58,14 @@
 				if(limIContent === true){ //icon content
 					
 				
-				
+					var iClr = config.content.iconColor;
+					//console.log(config.content.iconColor)
+					
 					if (limIconClr === true){
-						var iClr = config.content.Icon;
-						var elmIcon = jQuery('<span class="icon">'+config.content.iconContent+'</span>').css(iClr);
+						var elmIcon = jQuery('<span class="icon">'+config.content.iconContent+'</span>').css('color',iClr);
 					}
 					else {
-						var elmIcon = '<span class="icon">' + config.content.iconContent + '</span>';
+						var elmIcon = jQuery('<span class="icon">' + config.content.iconContent + '</span>');
 				  }
 					jQuery(this).addClass('listIconManipulator').children('li').wrapInner('<span class="content" />').prepend(elmIcon);
 				}

@@ -13,36 +13,41 @@ This has not been tested yet
 
 
 ### 1) Create a list
-
+``` html
 <ul id="listExample">
     <li>Dummy list item 1</li>
     <li>Dummy list item 2</li>
     <li>Dummy list item 3</li>
 </ul>
-
+```
 
 ### 2) Include jQuery/JavaScript
-
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+``` html
+<script src="js/jquery.min.js"></script>
 <script src="js/listIconManipulator.1.1.1.min.js"></script>
-
+```
 
 ### 3) Initialise List Icon Manipulator
-
+``` html
 $('#listExample').listIconManipulator({
     content: {
       iconContent:'!>',
       iconColor:'#BADA55'
     }
 });
-
+```
 
 ## Options
-
-iconContent:'<img src="img/icon-warning.png" alt="Warning"/>', //custom icon; text/html
-iconColor:'#BADA55' //optional icon color (html text only)
-tooltip:true, //optional tooltip (can remove)
-tooltipContent:'My tooltip content! <a href="#">More info</a>' //tooltip content
+``` html
+$('#listExample').listIconManipulator({
+  content: {
+		iconContent:'!!>', //custom icon; text/html, html image..
+		iconColor:'#BADA55' //optional icon color (html text only)
+		tooltip:true, //optional tooltip (can remove)
+		tooltipContent:'My tooltip content! <a href="#">More info</a>' //tooltip content
+	}
+});
+```
 
 
 ## Contributions

@@ -37,6 +37,14 @@ $('#listExample').listIconManipulator({
 });
 
 
+## Options
+
+iconContent:'<img src="img/icon-warning.png" alt="Warning"/>', //custom icon; text/html
+iconColor:'#BADA55' //optional icon color (html text only)
+tooltip:true, //optional tooltip (can remove)
+tooltipContent:'My tooltip content! <a href="#">More info</a>' //tooltip content
+
+
 ## Contributions
 
 Contributions are very welcome! Please contact me to discuss: tony@tonybarnes.me

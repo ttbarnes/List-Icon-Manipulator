@@ -7,7 +7,7 @@
 	* http://tonybarnes.me
 	* No license or copyright - do what you like
 	*
-	* Last updated: 11/10/2013
+	* Last updated: 14/10/2013
 	* Requirments:
 	* 1: jQuery
 	*

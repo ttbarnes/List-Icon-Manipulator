@@ -21,13 +21,18 @@ This has not been fully tested yet
 </ul>
 ```
 
-### 2) Include jQuery/JavaScript
+### 2) Include css
+``` html
+<link rel="stylesheet" href="css/lim.styles.css">
+```
+
+### 3) Include jQuery/JavaScript
 ``` html
 <script src="js/jquery.min.js"></script>
 <script src="js/listIconManipulator.1.1.1.min.js"></script>
 ```
 
-### 3) Initialise List Icon Manipulator
+### 4) Initialise List Icon Manipulator
 ``` html
 $('#listExample').listIconManipulator({
     content: {

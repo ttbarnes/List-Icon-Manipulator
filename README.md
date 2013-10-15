@@ -1,4 +1,4 @@
-# List-Icon-Manipulator
+# List Icon Manipulator
 Custom bullet points and list icons
 
 Demo: http://tonybarnes.me/showcase/code-snippets/listIconManipulator/demo/index.html

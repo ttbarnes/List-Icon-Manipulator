@@ -21,6 +21,7 @@
 				content: {
 					iconContent: '>>',
 					iconColor: false,
+					hoverOnly: false, //show icon/tooltip on hover only
 					tooltip:true,
 					tooltipContent:'Default tooltip content <a href="#">More info</a>'
 				}
@@ -45,6 +46,11 @@
 				} else {
 					limIconClr = false;
 				}
+				if(/\S/.test(config.content.hoverOnly)){ //hover only
+					iHoverOnly = true;
+				} else {
+					iHoverOnly = false;
+				}
 				
 				
 				if(config.content.tooltip === true && /\S/.test(config.content.tooltipContent)){ //tooltip rules
@@ -65,7 +71,13 @@
 					else {
 						var elmIcon = '<span class="icon">'+iCont+'</span>';
 				  }
-					jQuery(this).addClass('listIconManipulator').children('li').wrapInner('<span class="content" />').prepend(elmIcon);
+					
+					if(iHoverOnly === true) {
+						//bind hover event for icon
+					}
+					else {
+						jQuery(this).addClass('listIconManipulator').children('li').wrapInner('<span class="content" />').prepend(elmIcon);
+					}
 				}
 				
 				if(limTTipContent === true) { //tooltip		

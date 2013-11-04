@@ -5,7 +5,7 @@ Demo: http://tonybarnes.me/showcase/code-snippets/listIconManipulator/index.html
 
 
 ## Note
-This has not been fully tested yet
+This has not been fully tested yet. Working well in modern browsers.
 
 
 ## Requirments 

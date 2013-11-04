@@ -44,13 +44,14 @@
       <p class="last">&#8249;/div&#8250;</p>
     </div>    
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="js/listIconManipulator.1.1.2.min.js"></script>
+    <script src="js/listIconManipulator.1.1.2.js"></script>
     <script type="text/javascript">
     $(document).ready(function(e) {
 			$('#exampleWrapper').listIconManipulator({
 				content: {
 					iconContent:'!>',
-					iconColor:'#EEE'
+					iconColor:'#EEE',
+					iconHoverOnly:true
 				}
 			});
 			$('#featured').listIconManipulator({
@@ -59,7 +60,7 @@
 					iconColor:'red'
 				}
 			});
-			$('#notification').listIconManipulator({
+			/*$('#notification').listIconManipulator({
 				content: {
 					iconContent:'!!!',
 					iconColor:'#333'
@@ -73,6 +74,7 @@
 					tooltipContent:'Boo!'
 				}
 			});
+			*/
 		});
 		</script>
   </body>

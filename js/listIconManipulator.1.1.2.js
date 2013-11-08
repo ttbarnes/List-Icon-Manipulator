@@ -21,9 +21,9 @@
 				content: {
 					iconContent: '>>',
 					iconColor: false,
-					iconHoverOnly: false, //show icon content on hover only
-					tooltip:true,
-					tooltipContent:'Default tooltip content <a href="#">More info</a>'
+					iconHoverOnly: false, //show icon content on hover only (will break with tooltip)
+					tooltip:true, //tooltip and iconHoverOnly not possible (it will look silly)
+					tooltipContent:'Default tooltip content <a href="#">More info</a>' 
 				}
 			}, options);
 			
@@ -46,17 +46,19 @@
 				} else {
 					limIconClr = false;
 				}
+				
 				if(/\S/.test(config.content.iconHoverOnly)){ //hover only
 					iHoverOnly = true;
 				} else {
-					iHoverOnly = false;
+					iHoverOnly = false;			
 				}
 				
-				if(config.content.tooltip === true && /\S/.test(config.content.tooltipContent)){ //tooltip rules
+				if(iHoverOnly != false && config.content.tooltip === true && /\S/.test(config.content.tooltipContent)){ //tooltip
 					limTTipContent = true;							
 				} else {
 					limTTipContent = false;
-				}
+					console.log('Error! you are doing it wrong - cannot have tooltip and hoverOnly active on the same element')
+				}	
 				
 				///////////////////
 				//methods

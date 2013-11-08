@@ -43,7 +43,8 @@
       <p class="small"><a href="http://github.com/ttbarnes/List-Icon-Manipulator">github.com/ttbarnes/List-Icon-Manipulator</a></p>
       <p class="last">&#8249;/div&#8250;</p>
     </div>    
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>-->
+    <script src="js/jquery.min.js"></script>
     <script src="js/listIconManipulator.1.1.2.js"></script>
     <script type="text/javascript">
     $(document).ready(function(e) {
@@ -51,7 +52,9 @@
 				content: {
 					iconContent:'!>',
 					iconColor:'#EEE',
-					iconHoverOnly:true
+					iconHoverOnly:true,
+					tooltip:true,
+					tooltipContent:'Boo!'
 				}
 			});
 			$('#featured').listIconManipulator({

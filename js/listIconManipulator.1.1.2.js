@@ -67,6 +67,9 @@
 				iElm = jQuery(this).children('li'); //li children (presuming LI for now)
 					var iCont = config.content.iconContent;
 					
+					//temp for 1.1.2
+					var elmIcon = '<span class="icon">'+iCont+'</span>';
+					
 					/*
 					if (limIconClr === true){
 						var elmIcon = jQuery('<span class="icon">'+iCont+'</span>').css('color',iClr);
@@ -77,7 +80,7 @@
 					*/
 					
 					
-					if(iHoverOnly === true) {
+					if(iHoverOnly === true && config.content.tooltip === false) {
 						jQuery(this).addClass('listIconManipulator');
 						
 						iElm.wrapInner('<span class="content" />');
@@ -110,7 +113,7 @@
 					}
 				}
 				
-				if(limTTipContent === true) { //tooltip		
+				if(iHoverOnly === false && limTTipContent === true) { //tooltip		
 					jQuery(this).children('li').bind({
 						mouseenter: function(){
 							var iHover = jQuery(this);
@@ -127,6 +130,7 @@
 						},
 					});
 				}
+				
 		  });
 		}
 	};

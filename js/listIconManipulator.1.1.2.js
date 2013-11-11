@@ -32,13 +32,7 @@
 				///////////////////
 				//options/config
 				///////////////////
-				limTTipContent = false; //tooltip
-				
-				if(/\S/.test(config.content.iconContent)){ //icon content
-					limIContent = true;
-				} else {
-					limIContent = false;
-				}
+				limTTipContent = false; //tooltip content
 				
 				if(/\S/.test(config.content.iconColor)){ //icon color
 					limIconClr = true;
@@ -47,88 +41,101 @@
 					limIconClr = false;
 				}
 				
-				if(/\S/.test(config.content.iconHoverOnly)){ //hover only
+				if(config.content.iconHoverOnly === true){ //hover only
 					iHoverOnly = true;
 				} else {
 					iHoverOnly = false;			
 				}
+				/*
+				var iconContentTest = iconContent;
+				var a = iHoverOnly === false && config.content.tooltip === true && /\S/.test(config.content.tooltipContent);
+				var a = iHoverOnly === false && config.content.tooltip === true && /\S/.test(config.content.tooltipContent);
 				
-				if(iHoverOnly != false && config.content.tooltip === true && /\S/.test(config.content.tooltipContent)){ //tooltip
-					limTTipContent = true;							
-				} else {
-					limTTipContent = false;
-					console.log('Error! you are doing it wrong - cannot have tooltip and hoverOnly active on the same element')
-				}	
+				switch (iconContentTest) {
+				  case a:
+						
+				}
+				*/
 				
-				///////////////////
-				//methods
-				///////////////////
-				if(limIContent === true){ //icon content, colour
-				iElm = jQuery(this).children('li'); //li children (presuming LI for now)
-					var iCont = config.content.iconContent;
-					
-					//temp for 1.1.2
-					var elmIcon = '<span class="icon">'+iCont+'</span>';
-					
-					/*
-					if (limIconClr === true){
-						var elmIcon = jQuery('<span class="icon">'+iCont+'</span>').css('color',iClr);
-					}
-					else {
-						var elmIcon = '<span class="icon">'+iCont+'</span>';
-				  }
-					*/
-					
-					
-					if(iHoverOnly === true && config.content.tooltip === false) {
+				if(/\S/.test(config.content.iconContent)){ //make sure content actually exists
+			    limIContent = true;
+						
 						jQuery(this).addClass('listIconManipulator');
 						
-						iElm.wrapInner('<span class="content" />');
+						iElm = jQuery(this).children('li'); //li children (presuming LI for now)
+						var iCont = config.content.iconContent;
+						var elmIcon = '<span class="icon">'+iCont+'</span>';
+
+							console.log('test111');
+						 //make sure hoverOnly and tooltip are not both true
+						if(limIContent === true){
+							console.log('test100');
+							jQuery(this).addClass('listIconManipulator').children('li').wrapInner('<span class="content" />').prepend(elmIcon);
 						
-						var iconTest1 = '<span class="icon" style="visibility:hidden;opacity:0;">'+iCont+'</span>';
-						iElm.prepend(iconTest1);
-					
 						
-						iElm.bind({
-							mouseenter: function(){
-								var iHover = jQuery(this);
-								//iHover.addClass('active');
-								iHover.children('span.icon').css({'visibility':'visible','opacity':'100'});
-			
-								//jQuery('<div class="toolTip"></div>').hide().appendTo((jQuery(this).children('span.icon'))).html(config.content.tooltipContent).text();
-								//jQuery('div.toolTip').fadeIn(300).css({
-								//	'z-index':'9'
-								//});
-							},
-							mouseleave: function(){
-								$('span.icon').css({'visibility':'hidden'});
-								//jQuery(this).children('span.icon').children('div.toolTip').fadeOut(200).remove();
+						
+							if(config.content.tooltip === true){
+								if(/\S/.test(config.content.tooltipContent) && config.content.tooltip === true){ //tooltip, make sure actually exists
+									limTTipContent = true;
+									jQuery(this).children('li').bind({
+										mouseenter: function(){
+											var iHover = jQuery(this);
+											iHover.addClass('active');
+						
+											jQuery('<div class="toolTip"></div>').hide().appendTo((jQuery(this).children('span.icon'))).html(config.content.tooltipContent).text();
+											jQuery('div.toolTip').fadeIn(300).css({
+												'z-index':'9'
+											});
+										},
+										mouseleave: function(){
+											jQuery(this).removeClass('active');
+											jQuery(this).children('span.icon').children('div.toolTip').fadeOut(200).remove();
+										},
+									});
+									
+								} else {
+									limTTipContent = false;
+								}
 							}
-						});
-						
+							
+						}
+							else if(iHoverOnly === true){
+								
+								jQuery(this).addClass('listIconManipulator');
+								
+								iElm.wrapInner('<span class="content" />');
+								
+								var iconTest1 = '<span class="icon" style="visibility:hidden;opacity:0;">'+iCont+'</span>';
+								iElm.prepend(iconTest1);
+								iElm.bind({
+									mouseenter: function(){
+										var iHover = jQuery(this);
+										//iHover.addClass('active');
+										iHover.children('span.icon').css({'visibility':'visible','opacity':'100'});
 					
+										//jQuery('<div class="toolTip"></div>').hide().appendTo((jQuery(this).children('span.icon'))).html(config.content.tooltipContent).text();
+										//jQuery('div.toolTip').fadeIn(300).css({
+										//	'z-index':'9'
+										//});
+									},
+									mouseleave: function(){
+										$('span.icon').css({'visibility':'hidden'});
+										//jQuery(this).children('span.icon').children('div.toolTip').fadeOut(200).remove();
+									}
+								});
+								
+								
+								
+							}
+						/*
+					makeSureIhoverisnotconflicted = $('div.somethingtest');
+					if (makeSureIhoverisnotconflicted){
+						console.log('Error! you are doing it wrong - cannot have tooltip and hoverOnly active on the same element')
 					}
-					else {
-						jQuery(this).addClass('listIconManipulator').children('li').wrapInner('<span class="content" />').prepend(elmIcon);
-					}
-				}
-				
-				if(iHoverOnly === false && limTTipContent === true) { //tooltip		
-					jQuery(this).children('li').bind({
-						mouseenter: function(){
-							var iHover = jQuery(this);
-							iHover.addClass('active');
-		
-							jQuery('<div class="toolTip"></div>').hide().appendTo((jQuery(this).children('span.icon'))).html(config.content.tooltipContent).text();
-							jQuery('div.toolTip').fadeIn(300).css({
-								'z-index':'9'
-							});
-						},
-						mouseleave: function(){
-							jQuery(this).removeClass('active');
-							jQuery(this).children('span.icon').children('div.toolTip').fadeOut(200).remove();
-						},
-					});
+					*/
+					
+				} else {
+					limIContent = false;
 				}
 				
 		  });

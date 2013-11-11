@@ -28,7 +28,7 @@
                   <li>Eat my bullet point</li>
                 </ul>
                 <ul id="warning">
-                  <li>Tooltip me - hella Terry Richardson</li>
+                  <li>Hover only - hella Terry Richardson</li>
                 </ul>
               </ul>
               <!-- list item examples END -->
@@ -44,35 +44,37 @@
       <p class="last">&#8249;/div&#8250;</p>
     </div>    
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="js/listIconManipulator.1.1.1.min.js"></script>
+    <script src="js/listIconManipulator.1.1.2.min.js"></script>
     <script type="text/javascript">
     $(document).ready(function(e) {
 			$('#exampleWrapper').listIconManipulator({
 				content: {
-					iconContent:'!>',
-					iconColor:'#EEE'
+					iconContent:'!>'
 				}
 			});
+			
 			$('#featured').listIconManipulator({
 				content: {
 					iconContent:'*',
-					iconColor:'red'
+					tooltip:true,
+					tooltipContent:'Pop content! More information'
 				}
 			});
+			
 			$('#notification').listIconManipulator({
 				content: {
-					iconContent:'!!!',
-					iconColor:'#333'
+					iconContent:'!!!'
 				}
 			});
 			$('#warning').listIconManipulator({
 				content: {
 					iconContent: '!>',
-					iconColor:'#EEE',
-					tooltip:true,
-					tooltipContent:'Boo!'
+					iconHoverOnly:true
+					//tooltip:true,
+					//tooltipContent:'My popup. Insert content here'
 				}
 			});
+			
 		});
 		</script>
   </body>

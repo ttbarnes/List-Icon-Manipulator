@@ -29,15 +29,14 @@ This has not been fully tested yet. Working well in modern browsers.
 ### 3) Include jQuery/JavaScript
 ``` html
 <script src="js/jquery.min.js"></script>
-<script src="js/listIconManipulator.1.1.1.min.js"></script>
+<script src="js/listIconManipulator.1.1.2.min.js"></script>
 ```
 
 ### 4) Initialise List Icon Manipulator
 ``` html
 $('#listExample').listIconManipulator({
     content: {
-      iconContent:'!>',
-      iconColor:'#BADA55'
+      iconContent:'!>'
     }
 });
 ```
@@ -47,7 +46,7 @@ $('#listExample').listIconManipulator({
 $('#listExample').listIconManipulator({
   content: {
 		iconContent:'!!>', //custom icon; text/html, html image..
-		iconColor:'#BADA55' //optional icon color (html text only)
+		iconHoverOnly:true //display icon on hover only (cannot be used in conjunction with a tooltip)
 		tooltip:true, //optional tooltip (can remove)
 		tooltipContent:'My tooltip content! <a href="#">More info</a>' //tooltip content
 	}

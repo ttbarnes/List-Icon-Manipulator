@@ -46,63 +46,56 @@
 				
 				if(/\S/.test(config.content.iconContent)){
 			    limIContent = true;
+					var iCont = config.content.iconContent;
 						
-						jQuery(this).addClass('listIconManipulator');
-						
+					jQuery(this).addClass('listIconManipulator');
+					
+					if(iHoverOnly != true){
 						iElm = jQuery(this).children('li'); //li children (presuming LI for now)
-						var iCont = config.content.iconContent;
 						var elmIcon = '<span class="icon">'+iCont+'</span>';
+						
+						jQuery(this).addClass('listIconManipulator').children('li').wrapInner('<span class="content" />').prepend(elmIcon);
+					
+						if(config.content.tooltip === true){
+							limTTipContent = true;
 							
-							jQuery(this).addClass('listIconManipulator').children('li').wrapInner('<span class="content" />').prepend(elmIcon);
-						
-							if(config.content.tooltip === true){
-									limTTipContent = true;
+							jQuery(this).children('li').bind({
+								mouseenter: function(){
+									limTTipActiveCont = config.content.tooltipContent;
+									var iHover = jQuery(this);
+									iHover.addClass('active');					
+									iHover.children('span.icon').append('<div class="toolTip">'+limTTipActiveCont+'</div>');
 									
-									jQuery(this).children('li').bind({
-										mouseenter: function(){
-											limTTipActiveCont = config.content.tooltipContent;
-											var iHover = jQuery(this);
-											iHover.addClass('active');					
-											iHover.children('span.icon').append('<div class="toolTip">'+limTTipActiveCont+'</div>');
-											
-											iHover.children('div.toolTip').fadeIn(300).css({
-												'z-index':'9'
-											});
-											
-										},
-										mouseleave: function(){
-											jQuery(this).removeClass('active').children;
-											jQuery('div.toolTip').fadeOut(200).remove();
-										},
+									iHover.children('div.toolTip').fadeIn(300).css({
+										'z-index':'9'
 									});
-								}
+									
+								},
+								mouseleave: function(){
+									jQuery(this).removeClass('active').children;
+									jQuery('div.toolTip').fadeOut(200).remove();
+								},
+							});
+						}
+					}
+					else if(iHoverOnly === true){
+						var iElm = jQuery(this).children('li');
+						iElm.wrapInner('<span class="content" />');
 						
-							else if(iHoverOnly === true){
-								
-								jQuery(this).addClass('listIconManipulator');
-								
-								iElm.wrapInner('<span class="content" />');
-								
-								var iconTest1 = '<span class="icon" style="visibility:hidden;opacity:0;">'+iCont+'</span>';
-								iElm.prepend(iconTest1);
-								iElm.bind({
-									mouseenter: function(){
-										var iHover = jQuery(this);
-										//iHover.addClass('active');
-										iHover.children('span.icon').css({'visibility':'visible','opacity':'100'});
-					
-										//jQuery('<div class="toolTip"></div>').hide().appendTo((jQuery(this).children('span.icon'))).html(config.content.tooltipContent).text();
-										//jQuery('div.toolTip').fadeIn(300).css({
-										//	'z-index':'9'
-										//});
-									},
-									mouseleave: function(){
-										$('span.icon').css({'visibility':'hidden'});
-										//jQuery(this).children('span.icon').children('div.toolTip').fadeOut(200).remove();
-									}
-								});
+						var iconTest1 = '<span class="icon" style="visibility:hidden;opacity:0;">'+iCont+'</span>';
+						iElm.prepend(iconTest1);
+						iElm.bind({
+							mouseenter: function(){
+								var iHover = jQuery(this);
+								iHover.children('span.icon').css({'visibility':'visible','opacity':'100'});
+							},
+							mouseleave: function(){
+								var iHover = jQuery(this);
+								iHover.children('span.icon').css({'visibility':'hidden'});
 							}
-					
+						});
+					}
+				
 				} else {
 					limIContent = false;
 				}

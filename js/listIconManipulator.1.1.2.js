@@ -44,7 +44,7 @@
 					iHoverOnly = false;			
 				}
 				
-				if(/\S/.test(config.content.iconContent)){ //make sure content actually exists
+				if(/\S/.test(config.content.iconContent)){
 			    limIContent = true;
 						
 						jQuery(this).addClass('listIconManipulator');
@@ -55,34 +55,27 @@
 							
 							jQuery(this).addClass('listIconManipulator').children('li').wrapInner('<span class="content" />').prepend(elmIcon);
 						
-							//if(/\S/.test(config.content.tooltip)){ //ensure this only runs if tooltip and content exists
 							if(config.content.tooltip === true){
 									limTTipContent = true;
 									
 									jQuery(this).children('li').bind({
 										mouseenter: function(){
 											limTTipActiveCont = config.content.tooltipContent;
-											//var iHover = jQuery(this);
-											jQuery(this).addClass('active');					
-											jQuery(this).append('<div class="toolTip">'+limTTipActiveCont+'</div>');
+											var iHover = jQuery(this);
+											iHover.addClass('active');					
+											iHover.children('span.icon').append('<div class="toolTip">'+limTTipActiveCont+'</div>');
 											
-											jQuery(this).children('div.toolTip').fadeIn(300).css({
+											iHover.children('div.toolTip').fadeIn(300).css({
 												'z-index':'9'
 											});
 											
 										},
 										mouseleave: function(){
-											jQuery(this).removeClass('active');
-											jQuery(this).children('span.icon').children('div.toolTip').fadeOut(200).remove();
+											jQuery(this).removeClass('active').children;
+											jQuery('div.toolTip').fadeOut(200).remove();
 										},
 									});
-									
-								} 
-								/*if(/\S/.test(config.content.tooltip) && config.content.tooltipContent === false){
-									limTTipContent = false;
-							    console.log('listIconManipulator error! Ensure any tooltip settings have content (or remove both settings)');
 								}
-								*/
 						
 							else if(iHoverOnly === true){
 								

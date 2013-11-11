@@ -20,7 +20,7 @@ This has not been fully tested yet. Working well in modern browsers.
     <li>Dummy list item 3</li>
 </ul>
 ```
-
+  
 ### 2) Include css
 ``` html
 <link rel="stylesheet" href="css/lim.styles.css">

@@ -12,14 +12,13 @@
 	* 1: jQuery
 	*
 */
-
 ;(function($){
 
 	var methods = {
 		init : function(options) {
 			var config = $.extend({ //default settings
 				content: {
-					iconContent: '>>',
+					iconContent: '>>',    
 					//iconColor: false,
 					iconHoverOnly: false, //show icon content on hover only (will break with tooltip)
 					tooltip:true, //tooltip and iconHoverOnly not possible (it will look silly)
@@ -30,14 +29,6 @@
 			return this.each(function(){
 			
 				limTTipContent = false; //tooltip content
-				
-				/*if(/\S/.test(config.content.iconColor)){ //icon color
-					limIconClr = true;
-					var iClr = config.content.iconColor;
-				} else {
-					limIconClr = false;
-				}
-				*/
 				
 				if(config.content.iconHoverOnly === true){ //hover only
 					iHoverOnly = true;

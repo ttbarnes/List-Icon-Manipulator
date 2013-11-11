@@ -28,7 +28,7 @@
                   <li>Eat my bullet point</li>
                 </ul>
                 <ul id="warning">
-                  <li>Tooltip me - hella Terry Richardson</li>
+                  <li>Hover only - hella Terry Richardson</li>
                 </ul>
               </ul>
               <!-- list item examples END -->
@@ -43,43 +43,38 @@
       <p class="small"><a href="http://github.com/ttbarnes/List-Icon-Manipulator">github.com/ttbarnes/List-Icon-Manipulator</a></p>
       <p class="last">&#8249;/div&#8250;</p>
     </div>    
-		<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>-->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/listIconManipulator.1.1.2.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="js/listIconManipulator.1.1.2.min.js"></script>
     <script type="text/javascript">
     $(document).ready(function(e) {
 			$('#exampleWrapper').listIconManipulator({
 				content: {
-					iconContent:'!>',
-					//iconColor:'#BADA55',
-					iconHoverOnly:true
+					iconContent:'!>'
 				}
 			});
 			
 			$('#featured').listIconManipulator({
 				content: {
 					iconContent:'*',
-					//iconColor:'lime'
 					tooltip:true,
 					tooltipContent:'Pop content! More information'
 				}
 			});
 			
-			/*$('#notification').listIconManipulator({
+			$('#notification').listIconManipulator({
 				content: {
-					iconContent:'!!!',
-					iconColor:'#333'
+					iconContent:'!!!'
 				}
 			});
 			$('#warning').listIconManipulator({
 				content: {
 					iconContent: '!>',
-					iconColor:'#EEE',
-					tooltip:true,
-					tooltipContent:'Boo!'
+					iconHoverOnly:true
+					//tooltip:true,
+					//tooltipContent:'My popup. Insert content here'
 				}
 			});
-			*/
+			
 		});
 		</script>
   </body>

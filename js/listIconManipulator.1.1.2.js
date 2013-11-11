@@ -1,5 +1,5 @@
 /*
-	* List Icon Manipulator 1.1.1
+	* List Icon Manipulator 1.1.2
 	* Custom bullet points and list icon
 	* http://github.com/ttbarnes/List-Icon-Manipulator
 	*
@@ -7,7 +7,7 @@
 	* http://tonybarnes.me
 	* No license or copyright - do what you like
 	*
-	* Last updated: 15/10/2013
+	* Last updated: 11/11/2013
 	* Requirments:
 	* 1: jQuery
 	*
@@ -20,7 +20,7 @@
 			var config = $.extend({ //default settings
 				content: {
 					iconContent: '>>',
-					iconColor: false,
+					//iconColor: false,
 					iconHoverOnly: false, //show icon content on hover only (will break with tooltip)
 					tooltip:true, //tooltip and iconHoverOnly not possible (it will look silly)
 					tooltipContent:'Default tooltip content <a href="#">More info</a>' 
@@ -31,12 +31,13 @@
 			
 				limTTipContent = false; //tooltip content
 				
-				if(/\S/.test(config.content.iconColor)){ //icon color
+				/*if(/\S/.test(config.content.iconColor)){ //icon color
 					limIconClr = true;
 					var iClr = config.content.iconColor;
 				} else {
 					limIconClr = false;
 				}
+				*/
 				
 				if(config.content.iconHoverOnly === true){ //hover only
 					iHoverOnly = true;
@@ -65,7 +66,6 @@
 									var iHover = jQuery(this);
 									iHover.addClass('active');					
 									iHover.children('span.icon').append('<div class="toolTip">'+limTTipActiveCont+'</div>');
-									
 									iHover.children('div.toolTip').fadeIn(300).css({
 										'z-index':'9'
 									});

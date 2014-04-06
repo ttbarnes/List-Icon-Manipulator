@@ -1,7 +1,7 @@
 # List Icon Manipulator
 jQuery plugin for custom bullet points and list icons
 
-Demo: http://tonybarnes.me/showcase/code-snippets/listIconManipulator/index.html
+Demo: http://tonybarnes.me/#/showcase/jquery/list-icon-manipulator
 
 
 ## Note
